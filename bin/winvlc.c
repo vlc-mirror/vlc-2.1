@@ -349,6 +349,8 @@ LONG WINAPI vlc_exception_filter(struct _EXCEPTION_POINTERS *lpExceptionInfo)
             if( !caller )
                 break;
             pBase = *pBase;
+            if( !pBase )
+                break;
         }
 
         HANDLE hpid = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,
