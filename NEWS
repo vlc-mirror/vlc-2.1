@@ -1,6 +1,20 @@
 Changes between 2.1.5 and 2.1.6:
 --------------------------------
 
+Audio output:
+ * Fix OSS stuttering
+
+Security:
+ * Fix heap overflow in decomp stream filter
+ * Fix buffer overflow in updater
+ * Fix potential buffer overflow in schroedinger encoder
+ * Fix null-pointer dereference in DMO decoder
+ * Fix buffer overflow in parsing of string boxes in mp4 demuxer
+
+Win32 installer:
+ * Update translations and greek encoding
+
+
 Changes between 2.1.4 and 2.1.5:
 --------------------------------
 
