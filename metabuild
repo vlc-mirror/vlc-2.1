@@ -1,0 +1,44 @@
+#!/bin/sh
+set -e
+set -x
+export OSX_VERSION=10.9
+export MINIMAL_OSX_VERSION="10.6"
+export CC="xcrun clang"
+export CXX="xcrun clang++"
+export OBJC="xcrun clang"
+TRIPLE=x86_64-apple-darwin11
+export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+unset PKG_CONFIG_PATH
+unset PKG_CONFIG_LIBDIR
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/bin
+
+./bootstrap
+
+if [ -d contrib/$TRIPLE ]; then
+  :;
+else
+(
+cd contrib 
+rm -rf osx
+mkdir osx
+cd osx
+../bootstrap  --host=$TRIPLE --build=$TRIPLE
+make -j5
+)
+fi
+
+(
+rm -rf build
+mkdir build
+cd build
+  ../extras/package/macosx/configure.sh \
+  --enable-sftp \
+  --enable-realrtsp \
+  --enable-growl \
+  --enable-x26410b \
+  --enable-merge-ffmpeg \
+  --with-macosx-version-min=$MINIMAL_OSX_VERSION \
+  --with-macosx-sdk=$SDKROOT \
+  --host=$TRIPLE --build=$TRIPLE
+make -j5 package-macosx
+)
