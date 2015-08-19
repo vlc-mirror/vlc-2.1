@@ -6,7 +6,7 @@ USE_FFMPEG ?= 1
 
 ifdef USE_FFMPEG
 HASH=2dcaa1b9d142ae113b28bffdbf7f8f8900b5e770
-FFPMPEG_SNAPURL := https://github.com/vlc-mirror/ffmpeg/archive/$(HASH).tar.gz
+FFMPEG_SNAPURL := https://github.com/vlc-mirror/ffmpeg/archive/$(HASH).tar.gz
 else
 HASH=d1f9563d502037239185c11578cc614bdf0c5870
 FFMPEG_SNAPURL := http://git.libav.org/?p=libav.git;a=snapshot;h=$(HASH);sf=tgz
