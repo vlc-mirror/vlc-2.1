@@ -23,6 +23,7 @@ rm -rf osx
 mkdir osx
 cd osx
 ../bootstrap  --host=$TRIPLE --build=$TRIPLE
+make fetch-all
 make -j5
 )
 fi
