@@ -1,7 +1,7 @@
 # x264
 
 X264_GITURL := git://git.videolan.org/x264.git
-X264_SNAPURL := http://git.videolan.org/?p=x264.git;a=snapshot;h=HEAD;sf=tgz
+X264_SNAPURL := https://github.com/vlc-mirror/x264/archive/master.tar.gz
 
 ifdef BUILD_ENCODERS
 ifdef GPL

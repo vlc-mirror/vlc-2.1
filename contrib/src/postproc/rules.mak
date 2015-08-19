@@ -1,6 +1,6 @@
 # POSTPROC
 
-POSTPROC_SNAPURL := http://git.videolan.org/?p=libpostproc.git;a=snapshot;h=HEAD;sf=tgz
+POSTPROC_SNAPURL := https://github.com/vlc-mirror/libpostproc/archive/master.tar.gz
 
 POSTPROCCONF = \
 	--cc="$(CC)" \
